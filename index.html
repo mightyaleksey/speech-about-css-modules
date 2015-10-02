@@ -1,0 +1,480 @@
+<!DOCTYPE HTML>
+
+
+<html lang="ru">
+<head>
+	<title>Яндекс</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=792, user-scalable=no">
+	<link rel="stylesheet" href="themes/yandex/styles/screen.css" />
+	<!-- <link rel="stylesheet" href="themes/yandex/styles/prism-white.css" /> -->
+	<link rel="stylesheet" href="bower_components/prismjs/prism-twilight.css" />
+	
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Яндекс</h1>
+		<p>Алексей Литвинов, <a href="http://yandex.ru/">Яндекс</a></p>
+
+	</header>
+
+	<section id="section" class="slide cover"><div><h2>Яндекс</h2>
+
+</div></section>
+<section class="slide shout" id="cover"><div><h2>CSS Modules</h2>
+
+<div class="s">
+    <div class="service">Партнер</div>
+</div>
+
+<div class="info">
+	<p class="author">Алексей Литвинов, <br /> Разработчик интерфейсов</p>
+</div>
+
+</div></section>
+<section class="slide section" id="nbsp"><div><h2> </h2>
+
+<h3 id="css">Недостатки CSS</h3>
+
+</div></section>
+<section class="slide shout" id="section-1"><div><h2>Они есть :)</h2>
+
+</div></section>
+<section class="slide cover" id="picturesbootstrappng"><div><h2><img src="pictures/bootstrap.png" alt="" /></h2>
+
+<h3 class="shout" style="background: #2d3d47; color: white; font-size: 50px; font-weight: bold; margin: 0 -45px; padding: 10px 10px 10px 45px;">Bootstrap</h3>
+
+</div></section>
+<section class="slide shout" id="section-2"><div><h2>Зависимости</h2>
+
+</div></section>
+<section class="slide shout" id="nbsp-1"><div><h2>Утилизация мертвого кода</h2>
+
+</div></section>
+<section class="slide" id="section-3"><div><h2>Недетерминированный результат</h2>
+
+<pre><code class="language-css">
+.overlay-button
+{
+  background-color: blue;
+}
+
+.button
+{
+  background-color: white;
+}
+
+</code></pre>
+
+<p><br /></p>
+
+<pre><code class="language-javascript">
+&lt;button class="button overlay-button"&gt;Click me&lt;/button&gt;
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="section-4"><div><h2>Увеличиваем специфичность</h2>
+
+<pre><code class="language-css">
+button.overlay-button
+{
+  background-color: blue;
+}
+
+.button
+{
+  background-color: white;
+}
+
+</code></pre>
+
+<p><br /></p>
+
+<pre><code class="language-javascript">
+&lt;button class="button overlay-button"&gt;Click me&lt;/button&gt;
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="section-5"><div><h2>Нарушение изоляции</h2>
+
+<pre><code class="language-css">/* component/link.css */
+
+:link
+{
+  color: red;
+}
+
+:link:hover,
+:visited:hover
+{
+  color: blue !important;
+}
+
+</code></pre>
+
+</div></section>
+<section class="slide shout" id="section-6"><div><h2>Константы</h2>
+
+</div></section>
+<section class="slide section" id="nbsp-2"><div><h2> </h2>
+
+<h3 id="section-7">Решения</h3>
+
+</div></section>
+<section class="slide shout" id="section-8"><div><h2>Методология БЭМ</h2>
+
+</div></section>
+<section class="slide" id="css-1"><div><h2>CSS</h2>
+
+<pre><code class="language-css">
+.button { /* */ }
+
+.button_theme_action { /* */ }
+
+.button_disabled_yes { /* */ }
+
+</code></pre>
+
+<p><br /></p>
+
+<pre><code class="language-javascript">
+&lt;button class="button button_disabled_yes"&gt;Click me&lt;/button&gt;
+
+</code></pre>
+
+</div></section>
+<section class="slide shout" id="inline-css"><div><h2>Inline CSS</h2>
+
+</div></section>
+<section class="slide" id="a-hrefhttpblogvjeuxcom2014javascriptreact-css-in-js-nationjshtmlreact-css-in-js-by-vjeuxa"><div><h2><a href="http://blog.vjeux.com/2014/javascript/react-css-in-js-nationjs.html">React: CSS in JS by vjeux</a></h2>
+
+<pre><code class="language-javascript">/* component/button.js */
+
+const styles = {
+  container: {
+    background: '#f6f7f8 url(...) repeat-x',
+    border: '1px solid #cdced0',
+    borderRadius: 2,
+    boxShadow: '0 1px 1px rgba(0, 0, 0, .05)'
+  },
+  depressed: {
+    backgroundColor: '#4e69a2',
+    borderColor: '#c6c7ca',
+    color: '#5890ff'
+  }
+};
+
+&lt;div style={styles.container}&gt;
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="jsxstyle"><div><h2>jsxstyle</h2>
+
+<pre><code class="language-javascript">
+React.render(
+  &lt;Block
+    marginLeft="auto"
+    marginRight="auto"
+    marginTop="128"
+    border={'1px solid ' + LayoutConstants.secondaryColor}
+    width={48 * LayoutConstants.gridUnit}
+    minHeight={64}&gt;
+    &lt;Avatar username="pwh" /&gt;
+    &lt;Avatar username="justintimberlake" /&gt;
+    &lt;Avatar username="carlyraejepsen" /&gt;
+  &lt;/Block&gt;,
+  document.getElementById('container')
+);
+
+</code></pre>
+
+<p><a href="https://github.com/petehunt/jsxstyle">github.com/petehunt/jsxstyle</a></p>
+
+</div></section>
+<section class="slide shout" id="shadow-dom"><div><h2>Shadow DOM</h2>
+
+</div></section>
+<section class="slide" id="shadow-dom-1"><div><h2>Shadow DOM</h2>
+
+<p><img src="pictures/shadow-dom.png" alt="" class="stretch" /></p>
+
+</div></section>
+<section class="slide shout" id="css-modules"><div><h2>CSS Modules</h2>
+
+</div></section>
+<section class="slide" id="nbsp-3"><div><h2> </h2>
+
+<p><img src="pictures/css-modules-logo.png" style="margin: -70px 0 0 260px; width: 50%" /></p>
+
+</div></section>
+<section class="slide code-with-text" id="nodejs"><div><h2>Модули в Node.js</h2>
+
+<pre><code class="language-javascript">/* foo.js */
+
+var a = 5;
+var b = 4;
+
+module.exports = {
+  c: a + b
+};
+
+</code></pre>
+
+<p><br /></p>
+
+<pre><code class="language-javascript">/* bar.js */
+
+var foo = require('./foo.js');
+
+// ...
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="css-modules-1"><div><h2>CSS Modules</h2>
+
+<pre><code class="language-javascript">/* components/button.js */
+
+import { button } from './button.css';
+
+const buttonHTML = `&lt;button class=${ button }&gt;Click&lt;/button&gt;`;
+// inject html
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="css-modules-2"><div><h2>CSS Modules</h2>
+
+<pre style="float: left; width: 43%"><code class="language-css">/* components/button.css */
+
+.button
+{
+  /* all styles for Normal */
+}
+
+</code></pre>
+
+<pre style="float: right; margin-right: -45px; width: 43%" class="next"><code class="language-css">/* static/index.css */
+
+.button__button__1Nsm
+{
+  /* all styles for Normal */
+}
+
+</code></pre>
+
+<pre style="background: #000; float: left; margin-top: 20px" class="next"><code class="language-javascript">
+&lt;button class="button__button__1Nsm"&gt;Click&lt;/button&gt;
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="css-modules-3"><div><h2>CSS Modules</h2>
+
+<pre><code class="language-javascript">/* components/button.js */
+
+import { button } from './button.css';
+// 'button__button__1Nsm'
+
+const buttonHTML = `&lt;button class=${ button }&gt;Click&lt;/button&gt;`;
+// inject html
+
+</code></pre>
+
+</div></section>
+<section class="slide cover" id="picturesshort-classespng"><div><h2><img src="pictures/short-classes.png" alt="" /></h2>
+
+</div></section>
+<section class="slide" id="section-9"><div><h2>Короткие имена</h2>
+
+<pre><code class="language-css">/* components/button.css */
+
+.normal { /* all styles for Normal */ }
+
+.action { /* all styles for action */ }
+
+.disabled { /* all styles for Disabled */ }
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="section-10"><div><h2>Используй одну переменную</h2>
+
+<pre><code class="language-javascript">
+import { normal, disabled } from './button.css';
+
+// Don't do this
+`class=${ [normal, disabled].join(' ') }`
+
+// Better
+`class=${ disabled }`
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="compose"><div><h2>compose</h2>
+
+<pre><code class="language-css">
+.common { /* common styles for all states */ }
+
+.normal {
+  compose: common;
+  /* additional styles for Normal */
+}
+
+.action {
+  compose: common;
+  /* additional styles for action */
+}
+
+.disabled {
+  compose: common;
+  /* additional styles for Disabled */
+}
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="compose-1"><div><h2>compose</h2>
+
+<pre><code class="language-javascript">/* components/button.js */
+
+import { normal } from './button.css';
+// 'button__normal__1Nsm button__common__2kCn'
+
+const buttonHTML = `&lt;button class=${ normal }&gt;Click&lt;/button&gt;`;
+// inject html
+
+</code></pre>
+
+<p><br /></p>
+
+<pre><code class="language-javascript">
+&lt;button class="button__normal__1Nsm button__common__2kCn"&gt;Click&lt;/button&gt;
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="section-11"><div><h2>Взаимодействие с другими файлами</h2>
+
+<pre><code class="language-css">
+.local { /* */ }
+
+.common
+{
+  compose: local;
+  compose: blue from '../colors.css';
+  compose: flex from 'grid/index.css';
+}
+
+</code></pre>
+
+</div></section>
+<section class="slide cover" id="picturesfont-awesomepng"><div><h2><img src="pictures/font-awesome.png" alt="" /></h2>
+
+</div></section>
+<section class="slide" id="font-awesome"><div><h2>font-awesome</h2>
+
+<pre><code class="language-css">
+.thumbsUp
+{
+  color: blue;
+  font-size: 24px;
+
+  composes: fa fa-thumbs-o-up from 'font-awesome/css/font-awesome.css';
+}
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="section-12"><div><h2>Композиция</h2>
+
+<pre><code class="language-css">
+.body
+{
+  composes: max800 paragraph-margin-below from 'layout.css';
+  composes: helvetica-neue dark from './typography.css';
+}
+
+.header
+{
+  composes: header-margin-below from "./layout.css";
+  composes: enormous bold from './typography.css';
+}
+
+</code></pre>
+
+</div></section>
+<section class="slide" id="postcss"><div><h2>PostCSS</h2>
+
+<ul>
+  <li><a href="https://github.com/css-modules/postcss-modules-extract-imports">postcss-modules-extract-imports</a></li>
+  <li><a href="https://github.com/css-modules/postcss-modules-local-by-default">postcss-modules-local-by-default</a></li>
+  <li><a href="https://github.com/css-modules/postcss-modules-scope">postcss-modules-scope</a></li>
+  <li class="next"><a href="https://github.com/css-modules/icss-replace-symbols">icss-replace-symbols</a></li>
+  <li class="next"><a href="https://github.com/css-modules/postcss-modules-values">postcss-modules-values</a></li>
+</ul>
+
+</div></section>
+<section class="slide" id="section-13"><div><h2>Инструменты</h2>
+
+<ul>
+  <li><a href="https://github.com/css-modules/css-modulesify">css-modulesify</a></li>
+  <li><a href="https://github.com/webpack/css-loader">css-loader</a></li>
+  <li><a href="https://github.com/css-modules/css-modules-require-hook">css-modules-require-hook</a></li>
+</ul>
+
+</div></section>
+<section class="slide" id="section-14"><div><h2>Резюме</h2>
+
+<ul>
+  <li class="next">Автоматическая генерация уникальных селекторов</li>
+  <li class="next">Явные зависимости</li>
+  <li class="next">Композиция</li>
+  <li class="next">Легко встраивать сторонние библиотеки</li>
+</ul>
+
+</div></section>
+<section class="slide" id="section-15"><div><h2>Демки</h2>
+
+<p><a href="https://github.com/css-modules/browserify-demo">github.com/css-modules/browserify-demo</a><br />
+<a href="https://github.com/css-modules/jspm-demo">github.com/css-modules/jspm-demo</a><br />
+<a href="https://github.com/css-modules/webpack-demo">github.com/css-modules/webpack-demo</a><br />
+<a href="https://github.com/sullenor/todos">github.com/sullenor/todos</a></p>
+
+</div></section>
+<section class="slide shout" id="a-hrefhttpbitly1l8oma3-stylecolor-0174a7bitly1l8oma3a"><div><h2><a href="http://bit.ly/1L8omA3" style="color: #0174a7">bit.ly/1L8omA3</a></h2>
+
+</div></section>
+<section class="slide shout" id="contacts"><div><h2>Контакты</h2>
+
+<div class="info">
+<p class="author">Алексей Литвинов</p>
+<p class="position">Разработчик интерфейсов</p>
+
+    <div class="contacts">
+        <!-- <p class="contacts-left contacts-top phone">+7 (000) 000-00-00</p> -->
+        <p class="contacts-left mail">sullenor@yandex-team.ru</p>
+        <p class="contacts-left contacts-top twitter"><a href="https://twitter.com/myjsalterego">@myjsalterego</a></p>
+        <!-- <p class="contacts-right contacts-bottom vk">vk</p> -->
+        <p class="contacts-right github"><a href="https://github.com/sullenor">sullenor</a></p>
+    </div>
+</div>
+</div></section>
+
+	
+	<div class="progress"><div></div></div>
+	<script src="bower_components/shower-core/shower.min.js"></script>
+	<script src="bower_components/prismjs/prism.js"></script>
+	<script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript"
+	  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<!-- Copyright © 2015 Алексей Литвинов, Яндекс — http://yandex.ru/ -->
+</body>
+</html>
